@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "علی رضایی",
+    "description": "دانشجوی علاقه‌مند به فرانت‌اند",
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 2,
+    "name": "مینا محمدی",
+    "description": "برنامه‌نویس React و UI Designer",
+    "image": "https://via.placeholder.com/150"
+  }
+]
