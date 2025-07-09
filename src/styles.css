@@ -1,0 +1,170 @@
+body {
+  font-family: 'Tahoma', sans-serif;
+  background-color: #f7f9fc;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background-color: #0a74da;
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+section {
+  max-width: 900px;
+  margin: 1rem auto 3rem;
+  padding: 0 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+button.primary {
+  background-color: #0a74da;
+  color: white;
+}
+
+button.cancel {
+  background-color: #aaa;
+  color: white;
+  margin-left: 0.5rem;
+}
+
+form {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+form div {
+  margin-bottom: 1rem;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #222;
+}
+
+form input[type="text"],
+form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+form input[type="text"]:focus,
+form textarea:focus {
+  border-color: #0a74da;
+  outline: none;
+}
+
+.student-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  width: 220px;
+  margin: 1rem;
+  padding: 1rem;
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.student-card:hover {
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.student-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.student-card h4 {
+  margin: 0.3rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0a74da;
+  text-align: center;
+}
+
+.student-card p {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+  min-height: 40px;
+}
+
+.student-card button {
+  margin-top: 0.8rem;
+  width: 48%;
+  font-size: 0.85rem;
+}
+
+.student-card .edit-btn {
+  background-color: #f0ad4e;
+  color: white;
+}
+
+.student-card .edit-btn:hover {
+  background-color: #ec971f;
+}
+
+.student-card .delete-btn {
+  background-color: #d9534f;
+  color: white;
+}
+
+.student-card .delete-btn:hover {
+  background-color: #c9302c;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .student-card {
+    width: 90%;
+  }
+}
