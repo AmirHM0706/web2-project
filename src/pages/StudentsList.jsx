@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
-import Header from "../components/Header";
+import React, { useEffect, useState } from "react";
 import StudentCard from "../components/StudentCard";
+import Header from "../components/Header";
 import StudentForm from "../components/StudentForm";
-import "./Home.css";
-import "../components/Header.css";
-const Home = () => {
+import "./StudentsList.css";
+
+const StudentsList = () => {
   const [students, setStudents] = useState([]);
-  const [editingStudent, setEditingStudent] = useState(null);
   const [showForm, setShowForm] = useState(false);
+  const [editingStudent, setEditingStudent] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:3001/students")
       .then(res => res.json())
       .then(data => setStudents(data))
-      .catch(err => console.error("Error fetching students:", err));
+      .catch(err => console.error("خطا در دریافت لیست:", err));
   }, []);
 
   const handleAddClick = () => {
@@ -83,48 +83,38 @@ const Home = () => {
   };
 
   return (
-    <div className="home-container">
-    
-      <div className="overlay">
-        <Header />
-        <div className="section-title">
-        <h1>درس طراحی وب 2 - پروژه دانشجویان</h1>
-        </div>
-        <section className="content-box">
-          <h2>معرفی درس طرا حی وب ۲</h2>
-          <p>درس طراحی وب ۲، دوره‌ای پیشرفته برای یادگیری توسعه وب پویا و واکنش‌گرا است. در این درس با استفاده از React و فناوری‌های مدرن، ساخت رابط‌های کاربری تعاملی، مدیریت داده‌ها، ارتباط با سرور و طراحی واکنش‌گرا را می‌آموزید. هدف، آماده‌سازی دانشجویان برای ساخت پروژه‌های حرفه‌ای وب با استانداردهای روز است.</p>
-          <h3 style={{ color: "white" }}>معرفی استاد: دکتر علی رضایی</h3>
+    <div className="students-list-container" style={{ backgroundColor: "#f5f5f5", minHeight: "100vh", padding: "1rem" }}>
+      <Header />
+      <h2 style={{ textAlign: "center", marginTop: "1rem" }}>لیست دانشجویان</h2>
 
-          <button className="primary-btn" onClick={handleAddClick}>
-            افزودن دانشجوی جدید
-          </button>
+      <div style={{ textAlign: "center", marginBottom: "1rem" }}>
+        <button className="primary-btn" onClick={handleAddClick}>افزودن دانشجوی جدید</button>
+      </div>
 
-          {showForm && (
-            <StudentForm
-              studentToEdit={editingStudent}
-              onSave={handleSave}
-              onCancel={handleCancel}
+      {showForm && (
+        <StudentForm
+          studentToEdit={editingStudent}
+          onSave={handleSave}
+          onCancel={handleCancel}
+        />
+      )}
+
+      <div className="cards-container">
+        {students.length > 0 ? (
+          students.map(student => (
+            <StudentCard
+              key={student.id}
+              student={student}
+              onEdit={handleEdit}
+              onDelete={handleDelete}
             />
-          )}
-
-          <div className="cards-container">
-            {students.length > 0 ? (
-              students.map(student => (
-                <StudentCard
-                  key={student.id}
-                  student={student}
-                  onEdit={handleEdit}
-                  onDelete={handleDelete}
-                />
-              ))
-            ) : (
-              <p>هیچ دانشجویی یافت نشد.</p>
-            )}
-          </div>
-        </section>
+          ))
+        ) : (
+          <p style={{ textAlign: "center" }}>هیچ دانشجویی یافت نشد.</p>
+        )}
       </div>
     </div>
   );
 };
 
-export default Home;
+export default StudentsList;
